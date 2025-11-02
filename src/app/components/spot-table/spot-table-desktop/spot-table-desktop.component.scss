@@ -14,22 +14,8 @@
   );
 }
 
-.spot-table {
-  width: 100%;
-  margin-bottom: 50px;
-
-  .mat-mdc-header-row {
-    position: sticky;
-    top: 0;
-    z-index: 10;
+@media (prefers-color-scheme: dark) {
+  .spot-table .mdc-data-table__header-cell {
+    background-color: rgba(0, 0, 0, 0.5);
   }
-
-  .mdc-data-table__cell,
-  .mdc-data-table__header-cell {
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-}
-.txt-gray {
-  color: gray;
 }

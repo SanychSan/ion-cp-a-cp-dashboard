@@ -29,7 +29,7 @@ export abstract class SpotTable implements AfterViewInit, OnDestroy {
 
   constructor() {
     this.destroyRef = effect(() => {
-      this.spotSource.data = this.spotService
+      const coins = this.spotService
         .coins()
         .filter(c => {
           if (this.spotTableSettingsService.hideZeroBuyCoins()) {
@@ -43,6 +43,8 @@ export abstract class SpotTable implements AfterViewInit, OnDestroy {
           }
           return true;
         });
+
+      this.spotSource.data = coins;
 
       // console.log('SpotPage coins', this.spotSource.data);
       this.cdr.markForCheck();

@@ -26,8 +26,12 @@ export interface Transaction {
 
 export class Coin implements CoinInterface {
   #fees = 0.001; // 0.1%
-  private transactions: Transaction[] = [];
   readonly name: string;
+
+  #transactions: Transaction[] = [];
+  get transactions() {
+    return this.#transactions;
+  }
 
   #totalCoins = 0;
   get totalCoins() {
@@ -89,7 +93,7 @@ export class Coin implements CoinInterface {
   }
 
   addTransaction(tx: Transaction): void {
-    this.transactions.push(tx);
+    this.#transactions.push(tx);
 
     if (tx.direction === 'BUY') {
       const spent = new Big(tx.qty).times(tx.price);

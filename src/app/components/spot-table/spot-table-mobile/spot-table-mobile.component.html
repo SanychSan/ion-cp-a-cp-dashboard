@@ -1,5 +1,5 @@
 <table
-  class="spot-table-mobile"
+  class="spot-table"
   mat-table
   [dataSource]="spotSource"
   matSort
@@ -17,7 +17,7 @@
         </ion-text>
       </div>
     </th>
-    <td mat-cell *matCellDef="let r">
+    <td mat-cell *matCellDef="let r" [routerLink]="['/coin', r.name]">
       {{ r.name }}<br />
       {{ r.totalCoins }}<br />
       <ion-text color="medium">{{ r.totalCost | currency : 'USD' : 'symbol' : '1.2-2' }}</ion-text>
@@ -29,16 +29,16 @@
       <div>
         Price<br />
         <ion-text color="medium" class="ion-text-nowrap">
-          <small>cur / buy</small>
+          <small>cur / avg. buy</small>
         </ion-text>
       </div>
     </th>
-    <td class="ion-text-end" mat-cell *matCellDef="let r">
-      <ion-text color="secondary">{{
-        r.marketPrice | currency : 'USD' : 'symbol' : '1.2-2'
-      }}</ion-text
+    <td class="ion-text-end" mat-cell *matCellDef="let r" [routerLink]="['/coin', r.name]">
+      <ion-text>{{ r.marketPrice | currency : 'USD' : 'symbol' : '1.2-3' }}</ion-text
       ><br />
-      {{ r.avgBuyPrice | currency : 'USD' : 'symbol' : '1.2-2' }}
+      <ion-text color="medium">{{
+        r.avgBuyPrice | currency : 'USD' : 'symbol' : '1.2-3'
+      }}</ion-text>
     </td>
   </ng-container>
 
@@ -47,19 +47,19 @@
       <div>
         Profit<br />
         <ion-text color="medium" class="ion-text-nowrap">
-          <small>total / cur / cur%</small>
+          <small>cur / cur% / total</small>
         </ion-text>
       </div>
     </th>
-    <td mat-cell *matCellDef="let r">
-      <ion-text color="{{ r.totalProfit > 0 ? 'success' : r.totalProfit < 0 ? 'danger' : '' }}">{{
-        r.totalProfit | currency : 'USD' : 'symbol' : '1.2-2'
-      }}</ion-text
-      ><br />
+    <td mat-cell *matCellDef="let r" [routerLink]="['/coin', r.name]">
       <ion-text color="{{ r.currentProfit > 0 ? 'success' : r.currentProfit < 0 ? 'danger' : '' }}">
         {{ r.currentProfit | currency : 'USD' : 'symbol' : '1.2-2' }}<br />
-        {{ r.prcCurrentProfit | number : '1.2-2' }}%
+        <small>{{ r.prcCurrentProfit | number : '1.2-2' }}%</small>
       </ion-text>
+      <br />
+      <ion-text color="{{ r.totalProfit > 0 ? 'success' : r.totalProfit < 0 ? 'danger' : '' }}">{{
+        r.totalProfit | currency : 'USD' : 'symbol' : '1.2-2'
+      }}</ion-text>
     </td>
   </ng-container>
 

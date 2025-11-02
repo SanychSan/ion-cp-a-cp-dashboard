@@ -7,23 +7,29 @@
     </ion-header>
 
     <ion-content>
-      <ion-list class="mh-100">
-        <!-- <ion-menu-toggle>
-          <ion-item routerLink="/">
-            <ion-label>Home</ion-label>
-          </ion-item>
-        </ion-menu-toggle> -->
-        <ion-menu-toggle>
-          <ion-item routerLink="/">
-            <ion-label>Spot</ion-label>
-          </ion-item>
-        </ion-menu-toggle>
-        <ion-menu-toggle>
-          <ion-item routerLink="/credentials">
-            <ion-label>Credentials</ion-label>
-          </ion-item>
-        </ion-menu-toggle>
-      </ion-list>
+      <div
+        class="ion-display-flex ion-flex-direction-column ion-justify-content-between ion-flex-column menu-content mh-100"
+      >
+        <ion-list>
+          <ion-menu-toggle>
+            <ion-item routerLink="/">
+              <ion-label>Home</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle>
+            <ion-item routerLink="/spot">
+              <ion-label>Spot</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+        <ion-list class="ion-margin-bottom bottom-menu-item">
+          <ion-menu-toggle>
+            <ion-item routerLink="/credentials">
+              <ion-label>Credentials</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+      </div>
     </ion-content>
   </ion-menu>
 

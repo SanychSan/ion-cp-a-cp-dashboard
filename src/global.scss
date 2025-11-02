@@ -55,7 +55,7 @@ ion-header, ion-toolbar {
   padding-top: var(--ion-safe-area-top);
 }
 
-.spot-table-mobile {
+.spot-table {
   width: 100%;
   margin-bottom: 50px;
 
@@ -73,6 +73,7 @@ ion-header, ion-toolbar {
   }
   .mdc-data-table__cell {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    // font-weight: bold;
   }
   .mdc-data-table__header-cell {
     background-color: rgba(0, 0, 0, 0.1);

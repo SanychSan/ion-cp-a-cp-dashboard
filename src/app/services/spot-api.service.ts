@@ -2,8 +2,8 @@ import { Injectable, WritableSignal, signal, inject, effect, DestroyRef } from '
 
 import { CoinsPriceService } from './coins-price.service';
 import { BybitAPITxsService } from './bybit-api-txs.service';
-import { BybitAPITx, BybitCSVTx } from 'src/app/types/transaction.type';
-import { Coin } from 'src/app/classes/coin';
+import { BybitAPITx } from 'src/app/types/transaction.type';
+import { Coin, CoinInterface } from 'src/app/classes/coin';
 import { ServiceState } from 'src/app/types/service-state.type';
 import { bybitApiTxToCoinTx } from 'src/app/utils/bybit-tx-to-coin-tx';
 
